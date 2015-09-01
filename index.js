@@ -6,7 +6,5 @@ export default function () {
 
   var port = config.get('server.port');
 
-  app.listen(port, function () {
-    console.log('server up');
-  });
+  app.listen(port, () => console.log('server up'));
 };
