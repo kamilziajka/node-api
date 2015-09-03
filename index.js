@@ -3,15 +3,15 @@ import winston from 'winston';
 import init from './lib';
 
 export default () => {
-  let errorHandler = error => winston.loggers.get('runtime').error(error);
+  let getLogger = () => winston.loggers.get('runtime');
 
   init.logger()
     .then(
       () => init.server(),
-      error => errorHandler
+      error => getLogger().error(error)
     )
     .then(
-      () => console.log('server up'),
-      error => errorHandler
+      () => getLogger().info('server up'),
+      error => getLogger().error(error)
     );
 };
