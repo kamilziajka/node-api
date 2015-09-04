@@ -3,8 +3,9 @@ import winston from 'winston';
 import init from './lib';
 
 export default () => {
-  let logger =
-    (level, message) => winston.loggers.get('runtime').log(level, message);
+  let logger = (level, message) => {
+    winston.loggers.get('runtime').log(level, message);
+  };
 
   process.on(
     'uncaughtException',
