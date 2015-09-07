@@ -7,10 +7,7 @@ export default () => {
     winston.loggers.get('runtime').log(level, message);
   };
 
-  process.on(
-    'uncaughtException',
-    error => logger('error', error)
-  );
+  process.on('uncaughtException', error => logger('error', error));
 
   init.logger()
     .then(init.server)
